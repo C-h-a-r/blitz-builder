@@ -203,8 +203,285 @@ module.exports = {
 
 ## Summary of Classes
 
-### 1. **PluginLoader**
+<a name="PluginLoader"></a>
 
-The `PluginLoader` is responsible for loading all the plugins and their components (events, commands, and slash commands) dynamically based on the structure defined in each plugin's manifest.
+## PluginLoader
 
----
+Class representing a plugin loader.
+
+**Kind**: global class
+
+- [PluginLoader](#PluginLoader)
+  - [new PluginLoader(client, pluginsPath)](#new_PluginLoader_new)
+  - [.client](#PluginLoader+client) : <code>Object</code>
+  - [.pluginsPath](#PluginLoader+pluginsPath) : <code>string</code>
+  - [.loadPlugins()](#PluginLoader+loadPlugins)
+  - [.loadEvents(eventsDir)](#PluginLoader+loadEvents)
+  - [.loadCommands(commandsDir)](#PluginLoader+loadCommands)
+  - [.loadSlashCommands(slashCommandsDir)](#PluginLoader+loadSlashCommands)
+
+<a name="new_PluginLoader_new"></a>
+
+### new PluginLoader(client, pluginsPath)
+
+Creates an instance of PluginLoader.
+
+| Param       | Type                | Description                                             |
+| ----------- | ------------------- | ------------------------------------------------------- |
+| client      | <code>Object</code> | The client object where the plugins will be registered. |
+| pluginsPath | <code>string</code> | The path to the plugins directory.                      |
+
+<a name="PluginLoader+client"></a>
+
+### pluginLoader.client : <code>Object</code>
+
+The client object where plugins will be registered.
+
+**Kind**: instance property of [<code>PluginLoader</code>](#PluginLoader)
+<a name="PluginLoader+pluginsPath"></a>
+
+### pluginLoader.pluginsPath : <code>string</code>
+
+The path to the plugins directory.
+
+**Kind**: instance property of [<code>PluginLoader</code>](#PluginLoader)
+<a name="PluginLoader+loadPlugins"></a>
+
+### pluginLoader.loadPlugins()
+
+and loads events, commands, and slash commands based on the paths specified in the manifest.` file,
+
+**Kind**: instance method of [<code>PluginLoader</code>](#PluginLoader)
+<a name="PluginLoader+loadEvents"></a>
+
+### pluginLoader.loadEvents(eventsDir)
+
+Loads events from the specified directory and registers them with the client.
+
+**Kind**: instance method of [<code>PluginLoader</code>](#PluginLoader)
+
+| Param     | Type                | Description                           |
+| --------- | ------------------- | ------------------------------------- |
+| eventsDir | <code>string</code> | The directory containing event files. |
+
+<a name="PluginLoader+loadCommands"></a>
+
+### pluginLoader.loadCommands(commandsDir)
+
+Loads commands from the specified directory and registers them with the client.
+
+**Kind**: instance method of [<code>PluginLoader</code>](#PluginLoader)
+
+| Param       | Type                | Description                             |
+| ----------- | ------------------- | --------------------------------------- |
+| commandsDir | <code>string</code> | The directory containing command files. |
+
+<a name="PluginLoader+loadSlashCommands"></a>
+
+### pluginLoader.loadSlashCommands(slashCommandsDir)
+
+Loads slash commands from the specified directory and registers them with the client.
+
+**Kind**: instance method of [<code>PluginLoader</code>](#PluginLoader)
+
+| Param            | Type                | Description                                   |
+| ---------------- | ------------------- | --------------------------------------------- |
+| slashCommandsDir | <code>string</code> | The directory containing slash command files. |
+
+<br></br>
+
+<a name="Event"></a>
+
+## Event
+
+Class representing an event.
+
+**Kind**: global class
+
+- [Event](#Event)
+  - [new Event(name, execute)](#new_Event_new)
+  - [.name](#Event+name) : <code>string</code>
+  - [.execute](#Event+execute) : <code>function</code>
+  - [.register(client)](#Event+register)
+
+<a name="new_Event_new"></a>
+
+### new Event(name, execute)
+
+Creates an instance of Event.
+
+| Param   | Type                  | Description                                              |
+| ------- | --------------------- | -------------------------------------------------------- |
+| name    | <code>string</code>   | The name of the event (e.g., 'messageCreated', 'ready'). |
+| execute | <code>function</code> | The function to be executed when the event is triggered. |
+
+<a name="Event+name"></a>
+
+### event.name : <code>string</code>
+
+The name of the event.
+
+**Kind**: instance property of [<code>Event</code>](#Event)
+<a name="Event+execute"></a>
+
+### event.execute : <code>function</code>
+
+The function to execute when the event is triggered.
+
+**Kind**: instance property of [<code>Event</code>](#Event)
+<a name="Event+register"></a>
+
+### event.register(client)
+
+Registers the event listener with the client.
+
+**Kind**: instance method of [<code>Event</code>](#Event)
+
+| Param  | Type                | Description                                                         |
+| ------ | ------------------- | ------------------------------------------------------------------- |
+| client | <code>Object</code> | The client object (a Discord.js client) to register the event with. |
+
+<br></br>
+
+<a name="Command"></a>
+
+## Command
+
+Class representing a command.
+
+**Kind**: global class
+
+- [Command](#Command)
+  - [new Command(name, description, execute)](#new_Command_new)
+  - [.name](#Command+name) : <code>string</code>
+  - [.description](#Command+description) : <code>string</code>
+  - [.execute](#Command+execute) : <code>function</code>
+  - [.run(message, args)](#Command+run)
+
+<a name="new_Command_new"></a>
+
+### new Command(name, description, execute)
+
+Creates an instance of Command.
+
+| Param       | Type                  | Description                                            |
+| ----------- | --------------------- | ------------------------------------------------------ |
+| name        | <code>string</code>   | The name of the command.                               |
+| description | <code>string</code>   | A brief description of the command.                    |
+| execute     | <code>function</code> | The function to execute when the command is triggered. |
+
+<a name="Command+name"></a>
+
+### command.name : <code>string</code>
+
+The name of the command.
+
+**Kind**: instance property of [<code>Command</code>](#Command)
+<a name="Command+description"></a>
+
+### command.description : <code>string</code>
+
+The description of the command.
+
+**Kind**: instance property of [<code>Command</code>](#Command)
+<a name="Command+execute"></a>
+
+### command.execute : <code>function</code>
+
+The function to execute when the command is triggered.
+
+**Kind**: instance property of [<code>Command</code>](#Command)
+<a name="Command+run"></a>
+
+### command.run(message, args)
+
+Executes the command.
+
+**Kind**: instance method of [<code>Command</code>](#Command)
+
+| Param   | Type                              | Description                                                             |
+| ------- | --------------------------------- | ----------------------------------------------------------------------- |
+| message | <code>Object</code>               | The message object (from Discord.js) containing details of the message. |
+| args    | <code>Array.&lt;string&gt;</code> | An array of arguments passed to the command.                            |
+
+<br></br>
+
+<a name="SlashCommand"></a>
+
+## SlashCommand
+
+Class representing a slash command.
+
+**Kind**: global class
+
+- [SlashCommand](#SlashCommand)
+  - [new SlashCommand(name, description, [options], execute)](#new_SlashCommand_new)
+  - [.name](#SlashCommand+name) : <code>string</code>
+  - [.description](#SlashCommand+description) : <code>string</code>
+  - [.options](#SlashCommand+options) : <code>Array.&lt;Object&gt;</code>
+  - [.execute](#SlashCommand+execute) : <code>function</code>
+  - [.run(interaction)](#SlashCommand+run) ⇒ <code>Promise.&lt;void&gt;</code>
+  - [.toJSON()](#SlashCommand+toJSON) ⇒ <code>Object</code>
+
+<a name="new_SlashCommand_new"></a>
+
+### new SlashCommand(name, description, [options], execute)
+
+Creates an instance of SlashCommand.
+
+| Param       | Type                              | Default         | Description                                                  |
+| ----------- | --------------------------------- | --------------- | ------------------------------------------------------------ |
+| name        | <code>string</code>               |                 | The name of the slash command.                               |
+| description | <code>string</code>               |                 | A brief description of the slash command.                    |
+| [options]   | <code>Array.&lt;Object&gt;</code> | <code>[]</code> | An array of options for the slash command (e.g., arguments). |
+| execute     | <code>function</code>             |                 | The function to execute when the slash command is triggered. |
+
+<a name="SlashCommand+name"></a>
+
+### slashCommand.name : <code>string</code>
+
+The name of the slash command.
+
+**Kind**: instance property of [<code>SlashCommand</code>](#SlashCommand)
+<a name="SlashCommand+description"></a>
+
+### slashCommand.description : <code>string</code>
+
+The description of the slash command.
+
+**Kind**: instance property of [<code>SlashCommand</code>](#SlashCommand)
+<a name="SlashCommand+options"></a>
+
+### slashCommand.options : <code>Array.&lt;Object&gt;</code>
+
+An array of options (arguments) for the slash command.
+
+**Kind**: instance property of [<code>SlashCommand</code>](#SlashCommand)
+<a name="SlashCommand+execute"></a>
+
+### slashCommand.execute : <code>function</code>
+
+The function to execute when the slash command is triggered.
+
+**Kind**: instance property of [<code>SlashCommand</code>](#SlashCommand)
+<a name="SlashCommand+run"></a>
+
+### slashCommand.run(interaction) ⇒ <code>Promise.&lt;void&gt;</code>
+
+Executes the slash command.
+
+**Kind**: instance method of [<code>SlashCommand</code>](#SlashCommand)
+**Returns**: <code>Promise.&lt;void&gt;</code> - A promise that resolves when the command has been executed.
+
+| Param       | Type                | Description                                                        |
+| ----------- | ------------------- | ------------------------------------------------------------------ |
+| interaction | <code>Object</code> | The interaction object representing the slash command interaction. |
+
+<a name="SlashCommand+toJSON"></a>
+
+### slashCommand.toJSON() ⇒ <code>Object</code>
+
+Converts the slash command to a JSON object.
+
+**Kind**: instance method of [<code>SlashCommand</code>](#SlashCommand)
+**Returns**: <code>Object</code> - The JSON representation of the slash command.
