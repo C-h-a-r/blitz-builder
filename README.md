@@ -1,8 +1,8 @@
-# <img src="./assets/blitzbuilder.svg"/>
+# <img src="./assets/logo.png"/>
 
 <div style="text-align: center;">
 
-<img src="./assets/install.svg">
+<img src="./assets/install.png">
 
 </div>
 
