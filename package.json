@@ -1,0 +1,11 @@
+{
+  "name": "@blitz-bots/builder",
+  "version": "1.0.3",
+  "description": "Package To Build Bots For BLITZ",
+  "main": "command.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
