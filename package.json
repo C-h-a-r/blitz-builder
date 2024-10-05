@@ -1,6 +1,6 @@
 {
   "name": "@blitz-bots/builder",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Package To Build Bots For BLITZ",
   "main": "command.js",
   "scripts": {
