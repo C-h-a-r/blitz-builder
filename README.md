@@ -1,8 +1,8 @@
-# <img src="./assets/logo.png"/>
+# <img src="https://media.discordapp.net/attachments/1292200136507785261/1292200172876726362/logo.png?ex=6702deb1&is=67018d31&hm=fa85af70768ab8ed23a6829fa5b0939911128eb8f83036f68480087706413ec7&=&format=webp&quality=lossless&width=1025&height=342"/>
 
 <div style="text-align: center;">
 
-<img src="./assets/install.png">
+<img src="https://media.discordapp.net/attachments/1292200136507785261/1292200172524142823/install.png?ex=6702deb1&is=67018d31&hm=537b028d2acf44f6fb6837cc85913bbfc08153e22671705b83a1ad0284db962d&=&format=webp&quality=lossless">
 
 </div>
 
